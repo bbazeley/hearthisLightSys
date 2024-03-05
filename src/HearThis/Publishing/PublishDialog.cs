@@ -93,7 +93,7 @@ namespace HearThis.Publishing
 			_rdoCurrentBook.Text = string.Format(_rdoCurrentBook.Text, _model.PublishingInfoProvider.CurrentBookName);
 			_audacityLabelFile.Text = string.Format(_audacityLabelFile.Text, _scrAppBuilderRadio.Text, "Audacity");
 		}
-
+		 
 		private bool ReallyDesignMode =>
 			DesignMode || GetService(typeof (IDesignerHost)) != null ||
 			LicenseManager.UsageMode == LicenseUsageMode.Designtime;
@@ -266,7 +266,7 @@ namespace HearThis.Publishing
 					MessageBoxDefaultButton.Button1))
 					_includePhraseLevelLabels.Checked = false;
 			}
-		}
+		}  
 
 		protected override void OnResize(EventArgs e)
 		{
@@ -275,6 +275,41 @@ namespace HearThis.Publishing
 			_openFolderLink.MaximumSize = new Size(_publishButton.Location.X - _openFolderLink.Location.X - _publishButton.Margin.Left - _openFolderLink.Margin.Right,
 				_openFolderLink.MaximumSize.Height);
 			_destinationLabel.MaximumSize = _openFolderLink.MaximumSize;
+		}
+
+		private void _flacRadio_CheckedChanged(object sender, EventArgs e)
+		{
+
+		} 
+
+		private void tableLayoutPanelMain_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanelAudioFormat_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void _saberRadio_CheckedChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void _oggRadio_CheckedChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void _opusButton_CheckedChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
