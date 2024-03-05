@@ -7,6 +7,11 @@
 // </copyright>
 #endregion
 // --------------------------------------------------------------------------------------------
+using HearThis.Properties;
+using HearThis.Script;
+using HearThis.UI;
+using L10NSharp;
+using SIL.Linq;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -14,11 +19,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using HearThis.Properties;
-using HearThis.Script;
-using HearThis.UI;
-using L10NSharp;
-using SIL.Linq;
 
 namespace HearThis.Publishing
 {
@@ -93,9 +93,9 @@ namespace HearThis.Publishing
 			_rdoCurrentBook.Text = string.Format(_rdoCurrentBook.Text, _model.PublishingInfoProvider.CurrentBookName);
 			_audacityLabelFile.Text = string.Format(_audacityLabelFile.Text, _scrAppBuilderRadio.Text, "Audacity");
 		}
-		 
+
 		private bool ReallyDesignMode =>
-			DesignMode || GetService(typeof (IDesignerHost)) != null ||
+			DesignMode || GetService(typeof(IDesignerHost)) != null ||
 			LicenseManager.UsageMode == LicenseUsageMode.Designtime;
 
 		public bool ShowProblems { get; private set; }
@@ -149,14 +149,14 @@ namespace HearThis.Publishing
 				var selectedVerseIndexButton =
 					tableLayoutPanelVerseIndexFormat.Controls.OfType<RadioButton>().Single(b => b.Checked);
 				Settings.Default.PublishVerseIndexFormat = selectedVerseIndexButton.Name;
-				_model.VerseIndexFormat = (PublishingModel.VerseIndexFormatType) selectedVerseIndexButton.Tag;
+				_model.VerseIndexFormat = (PublishingModel.VerseIndexFormatType)selectedVerseIndexButton.Tag;
 			}
 
 			_model.PublishOnlyCurrentBook = _rdoCurrentBook.Checked;
 
 			if (_checkForProblemsBeforePublishing &&
-			    _model.BooksToExportHaveProblemsNeedingAttention()
-			    && DoesUserWantToSeeProblems())
+				_model.BooksToExportHaveProblemsNeedingAttention()
+				&& DoesUserWantToSeeProblems())
 			{
 				ShowProblems = true;
 				Close();
@@ -266,7 +266,7 @@ namespace HearThis.Publishing
 					MessageBoxDefaultButton.Button1))
 					_includePhraseLevelLabels.Checked = false;
 			}
-		}  
+		}
 
 		protected override void OnResize(EventArgs e)
 		{
@@ -280,7 +280,7 @@ namespace HearThis.Publishing
 		private void _flacRadio_CheckedChanged(object sender, EventArgs e)
 		{
 
-		} 
+		}
 
 		private void tableLayoutPanelMain_Paint(object sender, PaintEventArgs e)
 		{
